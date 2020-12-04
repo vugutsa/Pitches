@@ -2,7 +2,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:1998@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:1998@localhost/pitching'
 
     
     
@@ -33,17 +33,11 @@ class DevConfig(Config):
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     
-class TestConfig(Config):
-        SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:1998@localhost/watchlist_test'
-
-class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:1998@localhost/watchlist'
    
 DEBUG = True    
 
 config_options = {
 'development':DevConfig,
 'production':ProdConfig,
-'test':TestConfig
 }
 
