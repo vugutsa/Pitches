@@ -7,8 +7,7 @@ class Config:
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitching'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    
-    
+    SQLALCHEMY_TRACK_MODIFICATIONS = False    
     pass
 
 
@@ -36,11 +35,16 @@ class DevConfig(Config):
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     
-   
+class TestConfig(Config):
+        SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitching_test'
+
+class DevConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitching'  
 DEBUG = True    
 
 config_options = {
 'development':DevConfig,
 'production':ProdConfig,
+'test':TestConfig
 }
 
