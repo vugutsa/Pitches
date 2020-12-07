@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+    {% import 'macros.html' as macro%}
+    {% if title %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Choose your favorite pitch</title>
+    {% endif %}
+</head>
+<body> 
+    <!-- Styles block -->
+    {% block styles%}
+          {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
+    {% endblock %}
+    <!-- Content block -->
+    {% block content %}
+    <div class="container">
+        <div class="jumbotron" style="background-color: plum; font-style: italic;">
+            <h1 style="font-size: 30px;">"In life, you only have 60 seconds to impress someone. 1 minute can make or break you."</h1>
+        </div>
+   
+    <h3 class="card-text" class= "text text-center" style="font-weight: bolder; font-size: 30px;"> Inspirational pitches</h3>
+    <hr>
+    <h4>
+     Push yourself, because no one else is going to do it for you.
+    </h4>
+    <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New Pitch</a></button><br><br>
+    <button type="button" class="btn btn-outline-primary"><a href="/categories/Inspirational">Read More</a></button>
+    
+    <h3 class="card-text" class= "text text-center" style="font-weight: bolder; font-size: 30px;">Love pitches</h3>
+    <hr>
+    <h4>
+    You know you're in love when you can't fall asleep because reality is finally better than your dreams. 
+    </h4>
+    <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New Pitch</a></button><br><br>
+    <button type="button" class="btn btn-outline-primary"><a href="/categories/Love">Read More</a></button>
+    <h3 class="card-text" class = "text text-center" style="font-weight: bolder; font-size: 30px;"> Work pitches</h3>
+    <hr>
+    <h4>
+    When we strive to become better than we are, everything around us becomes better too.
+    </h4>
+    <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New Pitch</a></button><br><br>
+    <button type="button" class="btn btn-outline-primary"><a href="/categories/Work">Read More</a></button>
+    <hr>  
+    <h3 class="card-text" class = "text text-center" style="font-weight: bolder; font-size: 30px;"> Hustle pitches</h3>
+    <hr>
+    <h4>
+    Contrary to popular opinion, the hustle is not a dance step – it’s an old business procedure.
+    </h4>
+    <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New Pitch</a></button><br><br>
+    <button type="button" class="btn btn-outline-primary"><a href="/categories/Hustle">Read More</a></button>
+    <hr>
+    {% endblock%}
+    </div>
+</body>
