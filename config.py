@@ -42,7 +42,7 @@ class DevConfig(Config):
 
     
 class TestConfig(Config):
-        SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitching_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitching_test'
 
    
 config_options = {
