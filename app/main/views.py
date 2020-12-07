@@ -4,6 +4,9 @@ from . import main
 # from .forms import ReviewForm,UpdateProfile
 from .. import db,photos
 from flask_login import login_required,current_user
+import markdown2 
+
+
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
@@ -64,6 +67,11 @@ def new_review(id):
 
     title = f'{movie.title} review'
     return render_template('new_review.html',title = title, review_form=form, movie=movie)
-# @main.route('/pitches/review/new/<int:id>', methods = ['GET','POST'])
-# @login_required
-# def new_review(id):
+
+@main.route('/review/<int:id>')
+def single_review(id):
+    review=Review.query.get(id)
+    if review is None:
+        abort(404)
+    format_review = markdown2.markdown(review.movie_review,extras=["code-friendly", "fenced-code-blocks"])
+    return render_template('review.html',review = review,format_review=format_review)
