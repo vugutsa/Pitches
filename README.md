@@ -1,17 +1,18 @@
-# NEWS API
+# PITCHES
 
 ## Description
-* This project enables one to search for categories he/she wants depending on availability.
+* Pitches project is a project whereby it gives the user a chance to sign up and later on login to enable them to enter a pitch of their choice and are able to comment too.
 ## Authors
 * Mercy Vugutsa
 ## Technologies used
 * Python
 * README.md
 * HTML 
+* CSS
 
 ## Set up and installation
-- Clone this repository to a location in your file system;`git clone https://github.com/vugutsa/News-API.git`
-- Open terminal command line then navigate to the root folder of the application.`cd News API` on your browser.
+- Clone this repository to a location in your file system;`git clone https://github.com/vugutsa/Pitches.git`
+- Open terminal command line then navigate to the root folder of the application.`cd Pitches-Project` on your browser.
 - Open `index.html`on your browser.
 
 
