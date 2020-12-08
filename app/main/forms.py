@@ -10,7 +10,7 @@ class CommentForm(FlaskForm):
     
     title = StringField('Comment title',validators=[Required()])
 
-    comment = TextAreaField('Movie comment')
+    comment = TextAreaField('pitch comment')
 
     submit = SubmitField('Submit')
  

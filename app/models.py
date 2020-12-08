@@ -60,7 +60,7 @@ class Comments(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     pitches_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
-    movie_title = db.Column(db.String)
+    pitch_title = db.Column(db.String)
     image_path = db.Column(db.String)
     pitch_comment = db.Column(db.String)
     posted = db.Column(db.DateTime,default=datetime.utcnow)
@@ -72,7 +72,7 @@ class Comments(db.Model):
 
     @classmethod
     def get_comments(cls,id):
-        comments = Comments.query.filter_by(movie_id=id).all()
+        comments = Comments.query.filter_by(pitch_id=id).all()
         
         return comments
     

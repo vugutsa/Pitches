@@ -61,20 +61,20 @@ def update_pic(uname):
 @login_required
 def new_comment(id):
     form = CommentForm()
-    movie = get_movie(id)
+    pitch= get_pitch(id)
     if form.validate_on_submit():
         title = form.title.data
         comment = form.comment.data
 
         # Updated comment instance
-        new_comment = Comment(movie_id=movie.id,movie_title=title,image_path=movie.poster,pitch_comment=comment,user=current_user)
+        new_comment = Comment(pitch_id=pitch.id,pitch_title=title,image_path=pitch.poster,pitch_comment=comment,user=current_user)
 
         # save comment method
         new_comment.save_comment()
-        return redirect(url_for('.movie',id = movie.id ))
+        return redirect(url_for('.pitch',id = pitch.id ))
 
-    title = f'{movie.title} comment'
-    return render_template('new_comment.html',title = title, comment_form=form, movie=movie)
+    title = f'{pitch.title} comment'
+    return render_template('new_comment.html',title = title, comment_form=form, pitch=pitch)
 
 @main.route('/categories/<cate>')
 def category(cate):
@@ -117,5 +117,5 @@ def single_comment(id):
     comment=Comment.query.get(id)
     if comment is None:
         abort(404)
-    format_comment = markdown2.markdown(comment.movie_comment,extras=["code-friendly", "fenced-code-blocks"])
+    format_comment = markdown2.markdown(comment.pitch_comment,extras=["code-friendly", "fenced-code-blocks"])
     return render_template('comment.html',comment = comment,format_comment=format_comment)
